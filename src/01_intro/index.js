@@ -293,6 +293,30 @@
 
 
 
+// let a = 2;
+// switch (a) {
+//     case 1:
+//         //
+//         break;
+//     case 2:
+//         //
+//         break;
+//     case 3:
+//     case 4:
+//         //
+//         break;
+//     case a + 10:
+//         //
+//         break;
+//     default:
+//         //
+// }
+
+
+
+
+
+
 
 
 
