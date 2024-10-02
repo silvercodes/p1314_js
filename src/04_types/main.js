@@ -569,6 +569,8 @@
 
 ////////////////////////////// Деструктуризация //////////
 
+// --- arrays ---
+
 // const arr = ['vasia', 102];
 // const[name, id] = arr;
 // console.log(name, id);
@@ -594,9 +596,125 @@
 // console.log(a, b);
 
 
+
+// const planets = ['Mercury', 'Venus', 'Earth', 'Mars'];
+// const [p1, , p2, ...other] = planets;
+// console.log(p1, p2, other);
+
+
+// const[a = 'vasia', b = 101] = [];
+// console.log(a, b);
+
+
+// --- objects ---
+// const user = {
+//     id: 101,
+//     email: 'vasia@mail.com',
+//     age: 23,
+// };
+
+// const{id, email} = user;
+// const{age} = user;
+// console.log(id, email, age);
+
+// const{id: identity, email} = user;
+// console.log(identity, email);
+
+// const{email = 'no_email', role = 'guest'} = user;
+// console.log(email, role);
+
+// const{id: identity = 0, role: roleValue = 'guest'} = user;
+// console.log(identity, roleValue);
+
+// const{email: e = 'no_email', ...other} = user;
+// console.log(e, other);
+
+// let id;
+// let email;
+// ({id, email} = user);
+// console.log(id, email);
+
+
+// const unit = {
+//     id: 101,
+//     title: 'vasia',
+//     hp: 50,
+//     position: {
+//         x: 10,
+//         y: 20,
+//     },
+//     weapon: [
+//         'sward',
+//         'bow',
+//     ]
+// };
+//
+// let {
+//     title: name = 'no_name',
+//     position: {
+//         x: xCoord,
+//     },
+//     weapon: [
+//         priorityWeapon,
+//     ],
+//     ...other
+// } = unit;
+//
+// console.log(name, xCoord, priorityWeapon, other);
+// console.log(unit);
+
+
+//
+// function render({
+//     title: t = 'no_title',
+//     price: p = 0
+// } = {}) {
+//     console.log(t, p);
+// }
+//
+// render({
+//     id: 101,
+//     title: 'vasia',
+//     price: 4.5,
+// });
+//
+// render({});
+// render();
+
 /////////////////////////////////////////////////////////
 
 
+
+///////////////////////// ==== JSON ====
+
+// const user = {
+//     id: 101,
+//     email: 'vasia@mail.com',
+//     role: 'admin',
+// }
+
+// console.log(JSON.stringify(user));
+//
+// console.log(JSON.parse(JSON.stringify(user)));
+
+// console.log(JSON.stringify(user, (k, v) => {
+//     return k === 'role' ? undefined : v;
+// }));
+
+// console.log(JSON.stringify(user, null, 4));
+
+
+// const data = '{"id": 101,"title": "vasia","date": "2024-09-25T19:43:12"}';
+//
+// const obj = JSON.parse(data, (key, val) => {
+//     if (key === 'date')
+//         return new Date(val);
+//     return val;
+// });
+// console.log(obj);
+
+
+////////////////////////
 
 
 
