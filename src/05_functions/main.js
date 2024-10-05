@@ -713,25 +713,115 @@
 
 
 // --- debounce ---
-function debounceDecorator(fn, interval) {
-    let timer;
+// function debounceDecorator(fn, interval) {
+//     let timer;
+//     return function() {
+//         clearTimeout(timer);
+//         let args = arguments;
+//         let self = this;
+//         timer = setTimeout(function callOrigin() {
+//             fn.apply(self, args);
+//         }, interval);
+//     }
+// }
+//
+// let i = 0
+// function f() {
+//     console.log(++i);
+// }
+// f = debounceDecorator(f, 500);
+//
+// document.addEventListener('mousemove', f);
+
+
+
+
+
+// --- bind() ---
+
+// const user = {
+//     email: 'vasia@mail.com',
+//     render() {
+//         console.log(this.email);
+//     }
+// }
+
+// user.render();
+
+// setTimeout(function() {
+//     user.render();
+// }, 1000);
+
+// setTimeout(() => user.render(), 1000);
+
+// let f = user.render;
+// f = f.bind(user);
+// f();
+
+// function exec() {
+//     console.log(this.email);
+// }
+//
+// let f = exec.bind(user);
+// f();
+
+
+// setTimeout(user.render.bind(user), 1000);
+
+
+
+
+
+
+// ==== arrow function ====
+
+// const user = {
+//     email: 'vasia@mail.com',
+//     grades: [7, 9, 10, 12, 5],
+//     render() {
+//         this.grades.forEach(function(g) {
+//             console.log(`email: ${this.email}: ${g}`);
+//         }.bind(this));
+//     }
+// };
+//
+// user.render();
+
+
+// const user = {
+//     email: 'vasia@mail.com',
+//     grades: [7, 9, 10, 12, 5],
+//     render() {
+//         this.grades.forEach(g => console.log(`email: ${this.email}: ${g}`));
+//     }
+// };
+//
+// user.render();
+
+
+
+
+function decorator(f, delay) {
     return function() {
-        clearTimeout(timer);
-        let args = arguments;
-        let self = this;
-        timer = setTimeout(function callOrigin() {
-            fn.apply(self, args);
-        }, interval);
+        setTimeout(() => f.call(this, ...arguments), delay);
     }
 }
 
-let i = 0
-function f() {
-    console.log(++i);
+function f(a, b, c) {
+    console.log(a, b, c);
 }
-f = debounceDecorator(f, 500);
 
-document.addEventListener('mousemove', f);
+let df = decorator(f, 2000);
+df('vasia', 3, {});
+
+
+
+
+
+
+
+
+
 
 
 
