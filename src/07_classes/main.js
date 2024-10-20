@@ -385,23 +385,104 @@
 
 // =========== mixins ============
 
-const renderMixin = {
-    render() {
-        console.log(`id: ${this.id}`);
-    }
-};
+// const renderMixin = {
+//     render() {
+//         console.log(`id: ${this.id}`);
+//     }
+// };
 
-class User {
-    constructor(id) {
-        this.id = id;
-    }
-}
+// class User {
+//     constructor(id) {
+//         this.id = id;
+//     }
+// }
 
-Object.assign(User.prototype, renderMixin);
+// Object.assign(User.prototype, renderMixin);
 
-const a = new User(101);
-a.render();
+// const a = new User(101);
+// a.render();
 
+
+
+
+
+// =========== try/catch/finally ===========
+
+
+// try {
+//     a = 45;
+// } catch (error) {
+//     console.log('my error');
+// }
+
+
+// try {
+//     setTimeout(() => {
+//         a = 45;
+//     }, 1000);
+// } catch (error) {
+//     console.log('my error');
+// }
+
+
+// try {
+//     a = 45;
+// } catch (error) {
+//     console.log(error.name);
+//     console.log(error.message);
+//     console.log(error.stack);
+// }
+
+
+// try {
+//     a = 45;
+// } catch (error) {
+//     if (error.name === 'ReferenceError')
+//         console.log('hohoho');
+//     else
+//         throw error;
+// }
+
+
+
+// window.onerror = (message, url, line, col, error) => {
+//     console.log('global handler');
+// };
+
+
+// try {
+//     a = 45;
+// } catch (error) {
+//     console.log('my error');
+// }
+
+
+
+// console.dir(Error);
+
+
+
+// class ValidationError extends Error
+// {
+//     constructor(message) {
+//         super(message);
+//         // this.name = 'ValidationError';
+//         this.name = this.constructor.name;
+//     }
+// }
+
+// try {
+//     //
+//     //
+//     throw new ValidationError('my message');
+// } catch (error) {
+//     if (error instanceof ValidationError) {
+//         //
+//         //
+//     }
+//     else
+//         throw error;
+// }
 
 
 
