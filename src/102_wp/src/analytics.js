@@ -1,3 +1,5 @@
+import * as $ from 'jquery';
+
 function makeAnalytics() {
     let counter = 0;
 
@@ -5,11 +7,13 @@ function makeAnalytics() {
         counter++;
     }
 
-    document.addEventListener('click', handler);
+    // document.addEventListener('click', handler);
+    $('body').on('click', handler);
 
     return {
         remove() {
-            document.removeEventListener('click', handler);
+            // document.removeEventListener('click', handler);
+            $('body').off('click', handler);
             let a = 34;
         },
         getClicks() {
